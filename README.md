@@ -1,15 +1,9 @@
-# Basic Sample Hardhat Project
+# ERC 721 Minimal Proxy Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project is an NFT factory that utilizes EIP-1167 to deploy NFTs in a gas effective way
 
-Try running some of the following tasks:
+Try running the test file
 
 ```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
 npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
 ```
