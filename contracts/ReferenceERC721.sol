@@ -2,9 +2,9 @@ pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol';
 import '@openzeppelin/contracts/utils/math/SafeMath.sol';
-import "./utils/Ownable.sol";
+import "./utils/ReferenceOwnable.sol";
 
-contract ReferenceERC721 is ERC721Enumerable, Ownable {
+contract ReferenceERC721 is ERC721Enumerable, ReferenceOwnable {
 	using SafeMath for uint256;
 
 	bool private isReference;

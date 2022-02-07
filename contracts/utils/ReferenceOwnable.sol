@@ -1,11 +1,11 @@
 pragma solidity ^0.8.0;
 
-contract Ownable { 
+contract ReferenceOwnable { 
 	address internal _owner;
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
   modifier onlyOwner() {
-    require(owner() == msg.sender, "Ownable: caller is not the owner");
+    require(owner() == msg.sender, "ReferenceOwnable: caller is not the owner");
     _;
   }
 

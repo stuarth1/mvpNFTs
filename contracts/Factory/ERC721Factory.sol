@@ -1,10 +1,10 @@
 pragma solidity ^0.8.0;
 
-import "./CloneFactory.sol";
-import "../utils/IReferenceERC721.sol";
+import "@openzeppelin/contracts/proxy/Clones.sol";
 import '@openzeppelin/contracts/access/Ownable.sol';
+import "../utils/IReferenceERC721.sol";
 
-contract ERC721Factory is CloneFactory, Ownable {
+contract ERC721Factory is Ownable {
     event ERC721Created(address indexed sender, address indexed owner, address indexed contractAddress);
 
     mapping(uint256 => address) public contractVersions;
@@ -12,7 +12,7 @@ contract ERC721Factory is CloneFactory, Ownable {
 
     function createERC721(address _user, uint256 _version, string memory _name, string memory _symbol, uint256 maxNFTs) public returns (address _contract) {
         require(contractVersions[_version] != address(0), "Invalid version supplied");
-        _contract = createClone(contractVersions[_version]);
+        _contract = Clones.clone(contractVersions[_version]);
         IReferenceERC721(_contract).initialize(_user, _name, _symbol, maxNFTs);
         emit ERC721Created(msg.sender, _user, _contract);
     }
